@@ -83,41 +83,44 @@
 
         /* Sección de Servicios */
         .services {
-            background-color: #fff;
-            padding: 40px;
-            text-align: center;
-        }
+    background-color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+        
         .services h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #282828;
         }
         .service-cards {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            flex-wrap: wrap; /* Para que los servicios se acomoden en pantallas pequeñas */
-        }
-        .service-card {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            width: 22%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+    gap: 40px; /* Espacio entre las tarjetas */
+    margin-top: 20px;
+}
+       
+.service-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
         .service-card:hover {
             transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
         }
         .service-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+        
+    
+        
         .service-card h3 {
             font-size: 1.8em;
             color: #555555;
@@ -147,6 +150,11 @@
             padding: 40px;
             text-align: center;
         }
+        .contact {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
         .contact h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
@@ -182,31 +190,26 @@
     opacity: 1; /* Restaura opacidad completa */
 }
 
+/* Para pantallas más pequeñas (menos de 768px) */
+@media screen and (max-width: 768px) {
+    .service-cards {
+        grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
+    }
+    .services h2 {
+        font-size: 2em;
+    }
+    .main-header h1 {
+        font-size: 2.5em;
+    }
+    .main-header p {
+        font-size: 1em;
+    }
+}
 
 
 
-        /* Media Queries para hacer la página responsive */
-        @media screen and (max-width: 1024px) {
-            /* Para pantallas de tablet o menos */
-            .service-card {
-                width: 45%;
-            }
-        }
 
-        @media screen and (max-width: 768px) {
-            /* Para pantallas de smartphones (más pequeñas) */
-            .service-card {
-                width: 100%;
-            }
-            .services h2 {
-                font-size: 2em;
-            }
-            .main-header h1 {
-                font-size: 2.5em;
-            }
-            .main-header p {
-                font-size: 1em;
-            }
+        
             nav ul {
                 flex-direction: column;
                 text-align: center;
