@@ -81,8 +81,8 @@
             font-size: 1.2em;
         }
 
-        /* Sección de Servicios */
-        .services {
+      /* Sección de Servicios */
+.services {
     background-color: #fff;
     padding: 80px 20px;
     text-align: center;
@@ -93,43 +93,49 @@
             margin-bottom: 20px;
             color: #282828;
         }
+      
+   
         .service-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
-    gap: 40px; /* Espacio entre las tarjetas */
+    gap: 30px; /* Reducimos el espacio entre las tarjetas */
     margin-top: 20px;
 }
-       
-.service-card {
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+
+.service-card:hover {
+    transform: translateY(-10px); /* Efecto de elevación */
 }
-        .service-card:hover {
-            transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
-        }
-        .service-card img {
-    max-width: 100%;
+      /* Estilo para las imágenes dentro de las tarjetas */
+.service-card img {
+    max-width: 80%; /* Reducir el tamaño máximo de las imágenes dentro de las tarjetas */
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
 }
+
+    /* Ajustar el tamaño de las tarjetas para que sean más pequeñas */
+.service-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px; /* Reducir el padding dentro de las tarjetas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    width: 80%; /* Reducir el ancho relativo de las tarjetas */
+    margin: 0 auto; /* Centrar las tarjetas */
+}
         
-    
-        
-        .service-card h3 {
-            font-size: 1.8em;
-            color: #555555;
-        }
+        /* Estilo para el texto de las tarjetas */
+.service-card h3 {
+    font-size: 1.6em; /* Reducir el tamaño del título */
+    color: #555555;
+}
         .service-card p {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 15px;
-        }
+    font-size: 1em; /* Reducir el tamaño del texto */
+    color: #666;
+    margin-bottom: 15px;
+}
         .service-card button {
             background-color: #696969;
             color: white;
@@ -188,6 +194,7 @@
 .contact div img:hover {
     transform: scale(1.2); /* Aumenta el tamaño en un 20% */
     opacity: 1; /* Restaura opacidad completa */
+
 }
 
 /* Para pantallas más pequeñas (menos de 768px) */
@@ -205,6 +212,9 @@
         font-size: 1em;
     }
 }
+
+
+
 
 
 
