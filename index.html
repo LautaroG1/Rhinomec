@@ -18,7 +18,7 @@
 
         /* Navbar */
         nav {
-            background-color: #475047a8;
+            background-color: #828282a8;
             color: #ffffff;
             padding: 8px;
             display: flex;
@@ -54,19 +54,40 @@
         }
 
         /* Sección principal */
+
+        /* Estilo para la cabecera con video de fondo */
+.main-header {
+    position: relative; /* Necesario para que el overlay se posicione sobre el video */
+    height: 30vh; /* Ajusta la altura según tus necesidades */
+    text-align: center;
+    color: rgba(255, 255, 255, 0.508);
+    overflow: hidden; /* Asegura que el video no se desborde */
+}
+
+.main-header video {
+    position: absolute; /* Asegura que el video se quede fijo en el fondo */
+    top: 0;
+    left: 0;
+    width: 100%; /* El video cubre todo el ancho */
+    height: 100%; /* El video cubre toda la altura */
+    object-fit: cover; /* Asegura que el video cubra completamente el área sin distorsionarse */
+}
+
+.main-header .overlay {
+    position: absolute; /* Posiciona el texto sobre el video */
+    top: 50%; /* Centra el texto verticalmente */
+    left: 50%; /* Centra el texto horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar perfectamente */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Agrega sombra para que el texto sea legible */
+}
+
+.main-header h1 {
+    font-size: 3em; /* Ajusta el tamaño del título */
+    margin: 0;
+}
         
 
-        .main-header {
-    background-image: url('images/bombero2.jpg'); /* Ruta de la imagen */
-    background-size: cover; /* Asegura que la imagen cubra todo el espacio disponible */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 5px rgb(0, 0, 0);
-    padding: 50px 20px;
-    text-align: center;
-    height: 30vh; /* Ajusta la altura relativa al viewport */
-}
+
 /* Ajustes para pantallas pequeñas */
 @media screen and (max-width: 768px) {
     .main-header {
@@ -81,6 +102,8 @@
             font-size: 1.2em;
         }
 
+       
+
       /* Sección de Servicios */
 .services {
     background-color: #fff;
@@ -88,11 +111,12 @@
     text-align: center;
 }
         
-        .services h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #282828;
-        }
+.services h2 {
+    font-size: 3em; /* Mismo tamaño de fuente que el título principal */
+    margin: 0; /* Sin márgenes adicionales */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra de texto similar */
+    color: rgb(255, 238, 0); 
+}
       
    
         .service-cards {
@@ -129,7 +153,7 @@
         /* Estilo para el texto de las tarjetas */
 .service-card h3 {
     font-size: 1.6em; /* Reducir el tamaño del título */
-    color: #555555;
+    color: #3e3e3e;
 }
         .service-card p {
     font-size: 1em; /* Reducir el tamaño del texto */
@@ -260,21 +284,31 @@
     </nav>
 
     <!-- Sección principal de la página -->
+    
     <header class="main-header" id="inicio">
-        <h1>Soluciones profesionales para vehículos especiales</h1>
+
+        <video autoplay loop muted>
+            <source src="videos/Diseño sin título.mp4" type="video/mp4">
+            
+        </video>
+        <div class="overlay">
+            <h1>Soluciones profesionales para vehículos especiales</h1>
+        </div>
 
         
         
     </header>
 
+
     <!-- Sección de Servicios -->
     <section class="services" id="servicios">
         <h2>Nuestros Servicios</h2>
+        <br>
         <div class="service-cards">
             <!-- Servicio 1: Refurbished -->
             <div class="service-card">
                 <img src="images/carro.jpg" alt="Servicio Refurbished">
-                <h3>REFURBISHED</h3>
+                <h3>Refurbishment</h3>
                 <p>La RENOVACIÓN es uno de los núcleos de nuestro negocio, recibimos vehículos fabricados en todo el mundo. La experiencia nos ha permitido convertirnos en el líder en la industria de REFABRICACIÓN.</p>
                 <button onclick="window.location.href='#'">Más Información</button>
             </div>
@@ -288,7 +322,7 @@
             <!-- Servicio 3: Proyectos Especiales -->
             <div class="service-card">
                 <img src="images/carro3.jpg" alt="Proyectos Especiales">
-                <h3>Reparación y mantención</h3>
+                <h3>Reparación y Mantención</h3>
                 <p>Desarrollamos soluciones personalizadas para carros y flotas, adaptadas a necesidades específicas, como modificación de carrocerías o implementos especiales.</p>
                 <button onclick="window.location.href='#'">Más Información</button>
             </div>
@@ -305,17 +339,26 @@
     <!-- Sección de Contacto -->
     <section class="contact" id="contacto">
         <h2>Contáctanos</h2>
-        <p><strong>Dirección:</strong> Valparaiso, Curauma</p>
-        <p><strong>Correo electronico:</strong> Rinomec@gmail.com</p>
-        <p><strong>Buscanos en nuestras redes</strong>
+        <br>
+        <p><strong>Ubicación:</strong> 
+            <br>
+             Placilla. Valparaíso</p>
+             <br>
+        <p><strong>Correo electrónico:</strong> 
+            <br>
+             marketing@rhinomec.com
+             <br>
+             ventas@rhinomec.com</p>
+             <br>
+        <p><strong>Redes sociales</strong>
             
             <div class="facebook">
-                <a href="#">
+                <a href="https://www.facebook.com/share/18WSrJRMBz/?mibextid=wwXIfr">
                     <img src="images/app3.png" alt="facebook" width="50" height="50">
                 </a>
             </div>
             <div class="instagram">
-                <a href="#">
+                <a href="https://www.instagram.com/rhinomec/">
                     <img src="images/app2.png" alt="instagram" width="50" height="50">
                 </a>
             </div>
