@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #6b6b6b70;
+            background-color: #00000094;
             display: inline-flex;
             flex-direction: column;
             min-height: 100vh;
@@ -44,7 +44,9 @@
             color: white;
             text-decoration: none;
             font-size: 1.1em;
+
         }
+
         nav ul li a:hover {
             text-decoration: underline;
             text-decoration: none;
@@ -71,9 +73,9 @@
     width: 100%; /* El video cubre todo el ancho */
     height: 100%; /* El video cubre toda la altura */
     object-fit: cover; /* Asegura que el video cubra completamente el área sin distorsionarse */
-    
-    
-}
+    filter: brightness(60%);
+
+    }
 
 .main-header .overlay {
     position: absolute; /* Posiciona el texto sobre el video */
@@ -147,11 +149,11 @@
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 15px; /* Reducir el padding dentro de las tarjetas */
+    padding: 30px; /* Reducir el padding dentro de las tarjetas */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out;
-    width: 80%; /* Reducir el ancho relativo de las tarjetas */
+    width: 60%; /* Reducir el ancho relativo de las tarjetas */
     margin: 0 auto; /* Centrar las tarjetas */
 }
         
@@ -215,6 +217,12 @@
         html {
     scroll-behavior: smooth;
 }
+.contact div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
 .contact div img {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Unifica las transiciones */
     opacity: 0.8; /* Estado inicial tenue */
@@ -276,6 +284,7 @@
 
     <!-- Barra de navegación -->
     <nav>
+        
         <div class="logo">
             <a href="#inicio">
                 <img src="images/logo.png" alt="Logo" width="180" height="70">
@@ -313,31 +322,31 @@
         <div class="service-cards">
             <!-- Servicio 1: Refurbished -->
             <div class="service-card">
-                <img src="images/carro.jpg" alt="Servicio Refurbished">
+                <img src="images/carro.jpg" alt="Servicio Refurbishment">
                 <h3>Refurbishment</h3>
                 <p>La RENOVACIÓN es uno de los núcleos de nuestro negocio, recibimos vehículos fabricados en todo el mundo. La experiencia nos ha permitido convertirnos en el líder en la industria de REFABRICACIÓN.</p>
-                <button onclick="window.location.href='#'">Más Información</button>
+                <button onclick="window.location.href='servicio1.html'">Más Información</button>
             </div>
             <!-- Servicio 2: Venta de Carros Nuevos -->
             <div class="service-card">
                 <img src="images/carro2.jpg" alt="Venta de Carros Nuevos">
                 <h3>Venta de Carros Nuevos</h3>
                 <p>Ofrecemos una amplia gama de vehículos de marcas líderes, adaptados a tus necesidades y rendimiento.</p>
-                <button onclick="window.location.href='#'">Más Información</button>
+                <button onclick="window.location.href='servicio2.html'">Más Información</button>
             </div>
             <!-- Servicio 3: Proyectos Especiales -->
             <div class="service-card">
                 <img src="images/carro3.jpg" alt="Proyectos Especiales">
                 <h3>Reparación y Mantención</h3>
                 <p>Desarrollamos soluciones personalizadas para carros y flotas, adaptadas a necesidades específicas, como modificación de carrocerías o implementos especiales.</p>
-                <button onclick="window.location.href='#'">Más Información</button>
+                <button onclick="window.location.href='servicio3.html'">Más Información</button>
             </div>
             <!-- Servicio 4: Diseño e Ingeniería Industrial -->
             <div class="service-card">
                 <img src="images/carro4.jpg" alt="Diseño e Ingeniería Industrial">
                 <h3>Diseño e Ingeniería Industrial</h3>
                 <p>Ofrecemos soluciones innovadoras en diseño y optimización de procesos industriales, aplicados a la fabricación de piezas y reparación de vehículos.</p>
-                <button onclick="window.location.href='#'">Más Información</button>
+                <button onclick="window.location.href='servicio4.html'">Más Información</button>
             </div>
         </div>
     </section>
