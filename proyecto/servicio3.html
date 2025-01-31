@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refurbishment - Rhinomec</title>
+    <title>Reparación y mantención - Rhinomec</title>
     <style>
         /* Reset de márgenes y paddings */
         * {
@@ -23,7 +23,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #4C9A2A;
+            background-color: #777777dd;
+
             padding: 15px 20px;
             position: sticky;
             top: 0;
@@ -79,12 +80,13 @@
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background-color: #4C9A2A;
+                background-color: #bebebeef;
                 position: absolute;
                 top: 60px;
                 left: 0;
                 padding: 20px;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 4%;
             }
 
             .nav-links.active {
@@ -130,8 +132,10 @@
 
         /* Estilos del header */
         header {
-            background-color: #4C9A2A;
-            color: white;
+            background-color: #aaaaaac9;
+            margin: 0; /* Sin márgenes adicionales */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra de texto similar */
+            color: rgb(255, 238, 0); 
             text-align: center;
             padding: 30px 20px;
         }
@@ -164,18 +168,17 @@
         }
 
         button {
-            padding: 12px 25px;
-            background-color: #4C9A2A;
+            background-color: #696969;
             color: white;
+            font-size: 1.1em;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-
         button:hover {
-            background-color: #3b7d20;
+            background-color: #343434;
         }
     </style>
 </head>
@@ -189,8 +192,8 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#contactos">Contactos</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
     
         </ul>
         <div class="menu-icon" onclick="toggleMenu()">
@@ -202,13 +205,18 @@
 
     <!-- Contenido Principal -->
     <header>
-        <h1>Refurbishment</h1>
-        <img src="https://via.placeholder.com/1200x400" alt="Imagen de Refurbishment">
+        <h1>Reparación y mantención</h1>
+        <img src="images/carro3.jpg" alt="Imagen de Refurbishment" height="50px" width="50px">
     </header>
 
     <section>
-        <h2>¿Qué es el Refurbishment?</h2>
-        <p>La renovación o "Refurbishment" es el núcleo de nuestro negocio. Recibimos vehículos fabricados en todo el mundo y los adaptamos a las necesidades modernas mediante procesos especializados.</p>
+        
+        <p>En 2016, La empresa Rhinomec Limitada comenzó a mantener, reparar y construir vehículos de emergencia de todo tipo y tamaños, tanto para cuerpos de bomberos, agencias gubernamentales, industrias privadas y minería a lo largo de todo Chile.</p>
+        <br>
+         <p>Carros de bomberos, ambulancias, vehículos militares y privados entre muchos otros proyectos especiales que hemos desarrollado a lo largo de estos años. Todo servicio se realiza en nuestra propia Planta Industrial ubicada en Valparaíso, sector Placilla de Peñuelas. Contamos con 1.000 m2 techados y 5.000 m2 de terreno.</p> 
+         <br>
+         <p> Ocasionalmente, cuando las condiciones técnicas lo permiten, realizamos servicio en terreno. Colaboramos estrechamente con todas las marcas de vehículos industriales comerciales y no comerciales, con especial foco en vehículos de bomberos norteamericanos, en los cuales nos especializamos. </p>
+       <br>
         <div>
             <button onclick="window.location.href='index.html'">Regresar</button>  
         </div>
