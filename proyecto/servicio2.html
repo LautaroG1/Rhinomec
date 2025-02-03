@@ -132,7 +132,7 @@
 
         /* Estilos del header */
         header {
-            background-color: #aaaaaac9;
+            background-color: #dcdcdcc9;
             margin: 0; /* Sin márgenes adicionales */
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra de texto similar */
             color: rgb(255, 238, 0); 
@@ -141,11 +141,15 @@
         }
 
         header img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
+    width: 100%;  /* La imagen ocupa el 100% del contenedor */
+    max-width: 900px;  /* No sobrepasará los 1200px de ancho */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;  /* Elimina el espacio en blanco debajo de la imagen */
+    margin-left: auto;  /* Centra la imagen horizontalmente */
+    margin-right: auto;  /* Centra la imagen horizontalmente */
+}
 
         /* Estilos de la sección */
         section {
