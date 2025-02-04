@@ -151,6 +151,36 @@
     margin-right: auto;  /* Centra la imagen horizontalmente */
 }
 
+/* Estilo del Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;  /* Limita el tamaño máximo */
+    height: 400px;  /* Tamaño fijo para el carrusel */
+    margin: 0 auto;
+    overflow: hidden;  /* Oculta las imágenes fuera del área visible */
+    border-radius: 10px;
+    display: flex;  /* Flexbox para centrar las imágenes */
+    justify-content: center;  /* Centra las imágenes horizontalmente */
+    align-items: center;  /* Centra las imágenes verticalmente */
+}
+
+/* Estilo para las imágenes */
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que las imágenes cubran todo el contenedor sin deformarse */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;  /* Transición suave entre imágenes */
+}
+
+/* Imagen activa */
+.carousel-img.active {
+    opacity: 1;
+}
+
+
         /* Estilos de la sección */
         section {
             padding: 30px;
@@ -209,8 +239,16 @@
 
     <!-- Contenido Principal -->
     <header>
-        <h1>Venta de Carros nuevos</h1>
-        <img src="images/carro4.jpg" alt="Imagen de Venta carros">
+        <h1>Venta de Carros Nuevos</h1>
+        <div class="carousel">
+
+            <img src="venta/19347-16.jpg" alt="Imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-22.jpg" alt="Otra imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-4.jpg" alt="Imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-5.jpg" alt="Otra imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-6.jpg" alt="Imagen de Refurbishment" class="carousel-img">
+            
+        </div>
     </header>
 
     <section>
@@ -239,6 +277,28 @@
             navLinks.classList.toggle('active');
             menuIcon.classList.toggle('toggle');
         }
+
+        // Seleccionar las imágenes del carrusel
+const images = document.querySelectorAll('.carousel-img');
+let currentIndex = 0;  // Índice de la imagen activa
+
+// Función para cambiar la imagen activa
+function changeImage() {
+    // Eliminar la clase 'active' de la imagen actual
+    images[currentIndex].classList.remove('active');
+    
+    // Incrementar el índice (volver al principio si está al final)
+    currentIndex = (currentIndex + 1) % images.length;
+    
+    // Agregar la clase 'active' a la siguiente imagen
+    images[currentIndex].classList.add('active');
+}
+
+// Inicializar la primera imagen
+images[currentIndex].classList.add('active');
+
+// Cambiar la imagen cada 3 segundos
+setInterval(changeImage, 3000);  // 3000ms = 3 segundos
     </script>
 </body>
 </html>
