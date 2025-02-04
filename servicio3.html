@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparación y mantención - Rhinomec</title>
+    <style>
+        /* Reset de márgenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #777777dd;
+
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(166, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Icono del menú (hamburguesa) */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Media Queries para dispositivos pequeños */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #bebebeef;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 4%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .navbar .logo img {
+                width: 130px;
+                height: 50px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 20px;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Animación del icono de menú hamburguesa */
+        .menu-icon.toggle div:nth-child(1) {
+            transform: rotate(45deg);
+            position: absolute;
+            top: 9px;
+        }
+
+        .menu-icon.toggle div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.toggle div:nth-child(3) {
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 9px;
+        }
+
+        /* Estilos del header */
+        header {
+            background-color: #dcdcdcc9;
+
+            margin: 0; /* Sin márgenes adicionales */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra de texto similar */
+            color: rgb(255, 238, 0); 
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+/* Estilo del Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;  /* Limita el tamaño máximo */
+    height: 400px;  /* Tamaño fijo para el carrusel */
+    margin: 0 auto;
+    overflow: hidden;  /* Oculta los videos fuera del área visible */
+    border-radius: 10px;
+    display: flex;  /* Flexbox para centrar los videos */
+    justify-content: center;  /* Centra los videos horizontalmente */
+    align-items: center;  /* Centra los videos verticalmente */
+}
+
+/* Estilo para los videos */
+.carousel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Mantiene las proporciones del video sin distorsión */
+    object-position: center;  /* Asegura que el video se centre en el contenedor */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;  /* Transición suave entre videos */
+}
+/* Carrusel en pantallas grandes */
+.carousel {
+    max-width: 1200px;  /* Asegura que no se agrande demasiado */
+    height: 500px;  /* O ajusta el tamaño para pantallas grandes */
+}
+
+/* Carrusel en pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .carousel {
+        height: 300px;  /* Tamaño reducido para móviles */
+    }
+}
+
+
+/* Video activo */
+.carousel-video.active {
+    opacity: 1;
+}
+
+
+
+
+        /* Estilos de la sección */
+        section {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #000000cb;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            background-color: #696969;
+            color: white;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #343434;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" width="180" height="70">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
+    
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <header>
+        <h1>Reparación y Mantención</h1>
+        <div class="carousel">
+            <video class="carousel-video" autoplay loop muted>
+                <source src="videos2/video1.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+            <video class="carousel-video" autoplay loop muted>
+                <source src="videos2/video2.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+            <video class="carousel-video" autoplay loop muted>
+                <source src="videos2/video3.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+            <video class="carousel-video" autoplay loop muted>
+                <source src="videos2/video4.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+    </header>
+    
+
+    <section>
+        
+        <p>En 2016, La empresa Rhinomec Limitada comenzó a mantener, reparar y construir vehículos de emergencia de todo tipo y tamaños, tanto para cuerpos de bomberos, agencias gubernamentales, industrias privadas y minería a lo largo de todo Chile.</p>
+        <br>
+         <p>Carros de bomberos, ambulancias, vehículos militares y privados entre muchos otros proyectos especiales que hemos desarrollado a lo largo de estos años. Todo servicio se realiza en nuestra propia Planta Industrial ubicada en Valparaíso, sector Placilla de Peñuelas. Contamos con 1.000 m2 techados y 5.000 m2 de terreno.</p> 
+         <br>
+         <p> Ocasionalmente, cuando las condiciones técnicas lo permiten, realizamos servicio en terreno. Colaboramos estrechamente con todas las marcas de vehículos industriales comerciales y no comerciales, con especial foco en vehículos de bomberos norteamericanos, en los cuales nos especializamos. </p>
+       <br>
+        <div>
+            <button onclick="window.location.href='index.html'">Regresar</button>  
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rhinomec | Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Función para alternar la visibilidad del menú hamburguesa
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const menuIcon = document.querySelector('.menu-icon');
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('toggle');
+        }
+       // Seleccionar los videos del carrusel
+const videos = document.querySelectorAll('.carousel-video');
+let currentIndex = 0;  // Índice del video activo
+
+// Función para cambiar el video activo
+function changeVideo() {
+    // Eliminar la clase 'active' del video actual
+    videos[currentIndex].classList.remove('active');
+    
+    // Incrementar el índice (volver al principio si está al final)
+    currentIndex = (currentIndex + 1) % videos.length;
+    
+    // Agregar la clase 'active' al siguiente video
+    videos[currentIndex].classList.add('active');
+}
+
+// Inicializar el primer video
+videos[currentIndex].classList.add('active');
+
+// Cambiar el video cada 5 segundos (puedes ajustar el tiempo)
+setInterval(changeVideo, 5000);  // 5000ms = 5 segundos
+
+
+    </script>
+</body>
+</html>
