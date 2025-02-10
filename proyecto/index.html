@@ -56,12 +56,14 @@
 
         /* Sección principal */
 
+        
+
         /* Estilo para la cabecera con video de fondo */
 .main-header {
     position: relative; /* Necesario para que el overlay se posicione sobre el video */
     height: 30vh; /* Ajusta la altura según tus necesidades */
     text-align: center;
-    color: rgba(255, 255, 255, 0.508);
+    color: rgba(255, 255, 255, 0.412);
     overflow: hidden; /* Asegura que el video no se desborde */
 
 }
@@ -74,6 +76,8 @@
     height: 100%; /* El video cubre toda la altura */
     object-fit: cover; /* Asegura que el video cubra completamente el área sin distorsionarse */
     filter: brightness(60%);
+    
+    
 
     }
 
@@ -305,11 +309,14 @@
     
     <header class="main-header" id="inicio">
 
-        <video autoplay loop muted>
-            <source src="videos2/video.mp4" type="video/mp4">
-        
+        <div class="video">
+            <video class="video" autoplay loop muted>
+                <source src="videos2/Diseño sin título.mp4" type="video/mp4">
+               
+            </video>
             
-        </video>
+            
+        </div>
         <div class="overlay">
             <h1>Soluciones profesionales para vehículos especiales</h1>
         </div>
