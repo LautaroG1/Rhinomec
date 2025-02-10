@@ -1,2 +1,0 @@
-# Rhinomec
-Landing page Rhinomec
