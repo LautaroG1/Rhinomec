@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta Carros nuevos - Rhinomec</title>
+    <style>
+        /* Reset de márgenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #777777dd;
+
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Icono del menú (hamburguesa) */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Media Queries para dispositivos pequeños */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #bebebeef;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 4%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .navbar .logo img {
+                width: 130px;
+                height: 50px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 20px;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Animación del icono de menú hamburguesa */
+        .menu-icon.toggle div:nth-child(1) {
+            transform: rotate(45deg);
+            position: absolute;
+            top: 9px;
+        }
+
+        .menu-icon.toggle div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.toggle div:nth-child(3) {
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 9px;
+        }
+
+        /* Estilos del header */
+        header {
+            background-color: #dcdcdcc9;
+            margin: 0; /* Sin márgenes adicionales */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra de texto similar */
+            color: rgb(255, 238, 0); 
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header img {
+    width: 100%;  /* La imagen ocupa el 100% del contenedor */
+    max-width: 900px;  /* No sobrepasará los 1200px de ancho */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;  /* Elimina el espacio en blanco debajo de la imagen */
+    margin-left: auto;  /* Centra la imagen horizontalmente */
+    margin-right: auto;  /* Centra la imagen horizontalmente */
+}
+
+/* Estilo del Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;  /* Limita el tamaño máximo */
+    height: 400px;  /* Tamaño fijo para el carrusel */
+    margin: 0 auto;
+    overflow: hidden;  /* Oculta las imágenes fuera del área visible */
+    border-radius: 10px;
+    display: flex;  /* Flexbox para centrar las imágenes */
+    justify-content: center;  /* Centra las imágenes horizontalmente */
+    align-items: center;  /* Centra las imágenes verticalmente */
+}
+
+/* Estilo para las imágenes */
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que las imágenes cubran todo el contenedor sin deformarse */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;  /* Transición suave entre imágenes */
+}
+
+/* Imagen activa */
+.carousel-img.active {
+    opacity: 1;
+}
+
+
+        /* Estilos de la sección */
+        section {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #000000cb;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            background-color: #696969;
+            color: white;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #343434;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" width="180" height="70">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
+    
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <header>
+        <h1>Venta de Carros Nuevos</h1>
+        <div class="carousel">
+
+            <img src="venta/19347-16.jpg" alt="Imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-22.jpg" alt="Otra imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-4.jpg" alt="Imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-5.jpg" alt="Otra imagen de Refurbishment" class="carousel-img">
+            <img src="venta/19347-6.jpg" alt="Imagen de Refurbishment" class="carousel-img">
+            
+        </div>
+    </header>
+
+    <section>
+        
+        <p>En Rhinomec te brindamos la confianza de unos buenos socios. Es por esto que también te ayudamos a encontrar el Carro que se adecúe con mayor eficiencia a sus necesidades principales. Trabajamos brindado un servicio de venta de carros especiales y de emergencia, ya sean nuevos, semi-nuevos reacondicionados por nosotros o en su defecto; un carro usado en donde aplicamos nuestra especialidad: el REFURBISHMENT. Sabiendo esto, reafirmar que como empresa ofrecemos la ayuda completa para que obtengan sus carros en la máxima calidad dentro del mercado, ofreciéndoles soluciones y dándoles así, la oportunidad a diferentes instituciones de adquirir un carro que cumpla con sus expectativas, además de la seguridad de un trabajo eficaz. </p>
+        <br>
+        <div>
+            <button onclick="window.location.href='index.html'">Regresar</button>  
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rhinomec | Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Función para alternar la visibilidad del menú hamburguesa
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const menuIcon = document.querySelector('.menu-icon');
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('toggle');
+        }
+
+        // Seleccionar las imágenes del carrusel
+const images = document.querySelectorAll('.carousel-img');
+let currentIndex = 0;  // Índice de la imagen activa
+
+// Función para cambiar la imagen activa
+function changeImage() {
+    // Eliminar la clase 'active' de la imagen actual
+    images[currentIndex].classList.remove('active');
+    
+    // Incrementar el índice (volver al principio si está al final)
+    currentIndex = (currentIndex + 1) % images.length;
+    
+    // Agregar la clase 'active' a la siguiente imagen
+    images[currentIndex].classList.add('active');
+}
+
+// Inicializar la primera imagen
+images[currentIndex].classList.add('active');
+
+// Cambiar la imagen cada 3 segundos
+setInterval(changeImage, 3000);  // 3000ms = 3 segundos
+    </script>
+</body>
+</html>
